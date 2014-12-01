@@ -1,0 +1,30 @@
+{
+  "name": "exprimus-example",
+  "version": "1.0.0",
+  "description": "An example usage of exprimus",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.8.4",
+    "cookie-parser": "^1.3.3",
+    "debug": "^2.0.0",
+    "engine.io": "^1.4.3",
+    "express": "^4.9.8",
+    "express-session": "^1.9.2",
+    "jade": "^1.6.0",
+    "morgan": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  , "start":"node index.js"
+  },
+  "keywords": [
+    "exprimus",
+    "primus",
+    "socket.io",
+    "engine.io",
+    "express"
+  ],
+  "author": "xananax@yelostudio.com",
+  "license": "ISC"
+}

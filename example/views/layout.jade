@@ -1,0 +1,30 @@
+if (!skipLayout)
+	doctype html
+	html
+		head
+			title= title
+			link(rel='stylesheet', href='/style.css')
+			script(src="/primus/primus.js")
+		body
+			h1 Exprimus Example
+			block content
+			#explanation
+				p Two URLS are available:
+				ul
+					li /:id which will return this document
+					li /data/:id which will return the data only
+				p try them in the url bar and using the form below:
+			form#form
+				label(for="text") text to send
+					input(type="text" name="text" id="text")
+				br
+				label(for="data")
+					input(type="checkbox" name="data" id="data")
+					| use /data/:id
+				br
+				input(type="submit",value="send over sockets")
+			h2 answer:
+			#answer
+			script(src="/main.js")
+else
+	block content
