@@ -5,7 +5,7 @@ define them once, use them everywhere.
 
 ## Install
 ```
-npm install --save exprimus engine.io cookie-parser express-session
+npm install --save exprimus express engine.io cookie-parser express-session
 ```
 
 In details:
@@ -15,13 +15,19 @@ first, install exprimus
 npm install --save exprimus
 ```
 
+install express
+```
+npm install express
+```
+note that express is not mandatory; you could use exprimus as a pure socket router, without express.
+
 Then, get a real-time framework, for example, engine.io
 ```
 npm install --save engine.io
 ```
 (for more info, head to [Primus](https://github.com/primus/primus), which Exprimus uses internally)
 
-if you want persisting sessions, you'll have to get express-session and cookie-parser:
+if you want to share sessions with express, you'll have to get express-session and cookie-parser:
 ```
 npm install --save cookie-parser express-session
 ```
