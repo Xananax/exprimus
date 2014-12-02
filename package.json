@@ -1,6 +1,6 @@
 {
   "name": "exprimus",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Binds Express and any real time engine through Primus",
   "main": "index.js",
   "directories": {
