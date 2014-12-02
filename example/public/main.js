@@ -1,10 +1,16 @@
 var primus = new Primus();
 primus.on('data',function(data){
-	if(typeof data !== 'string'){
-		if(data.render){data = data.render;}
-		else{data = '<pre>'+JSON.stringify(data)+'</pre>';}
+	var url = data.url || '/';
+	if(data.url == '/'){
+		if(typeof data !== 'string'){
+			if(data.render){data = data.render;}
+			else{data = '<pre>'+JSON.stringify(data)+'</pre>';}
+		}
+		Answer.innerHTML = data;
 	}
-	Answer.innerHTML = data;
+	else{
+		console.log(data);
+	}
 });
 function send(url,data){
 	if(!data){data = {};}
@@ -17,7 +23,7 @@ function send(url,data){
 
 var Answer = document.getElementById('answer');
 var Form = document.getElementById('form');
-console.log(Form,'sdfsdf');
+
 Form.onsubmit = function(event){
 	event.preventDefault();
 	var text = Form.text.value;

@@ -31,19 +31,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /*** ROUTING ***/
 pApp.get('/',function(req,res){
-	res.render('index',{title:'home'});
+	res.render('index',{title:'home',url:'/'});
 });
 pApp.get('/:id',function(req,res,next){
 	var id = req.param('id');
-	res.render('index',{title:id});
+	res.render('index',{title:id,url:'/'});
 });
 pApp.get('/data/:id',function(req,res,next){
 	var id = req.param('id');
 	if(req.isSocket){ // this is a primus request
-		res.send({title:id});
+		res.send({url:'/',title:id});
 	}
 	else{ // this is a normal request
-		res.render('data',{title:id});
+		res.render('data',{title:id,url:'/'});
 	}
 })
 
@@ -55,6 +55,11 @@ pApp.use(function(req, res, next) {
 });
 
 /*** START THE SERVER ***/
-var server = pApp.listen(app.get('port'),function(){ 
+var server = pApp.listen(pApp.get('port'),function(){ 
 	console.log('Exprimus server listening on port ' + server.address().port);
+},function(spark){ //this runs on every connection
+	spark.on('data',function(data){
+		console.log('received',data);
+	})
 });
+/***/
